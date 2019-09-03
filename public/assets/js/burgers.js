@@ -1,61 +1,34 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
-    $(function() {
-    $(".change-eat").on("click", function(event) {
-      var id = $(this).data("id");
-      var newEat = $(this).data("neweat");
+// On click function for adding new burgers to the page
+$(document).on("click", "#submit", function(){
+
+  // sets the new burgers name into an object
+  let newBurger = {
+      name: $(`#usersBurger`).val().trim()
+  }
+
+  // passes that object into a post AJAX call
+  $.post("/api/burgers", newBurger, function(){
+  })
+  // reloads the page so that the user can see the new burger displayed
+  location.reload();
+})
+
+// On click button for the time to eat buttons
+$(document).on("click", ".notdevouredCard", function(){
   
-      var newEatState = {
-        devoured: newEat
-      };
-  
-      // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
-        type: "PUT",
-        data: newEatState
-      }).then(
-        function() {
-          console.log("changed devoured to", newEat);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-  
-    $(".create-form").on("submit", function(event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
-  
-      var newBurger = {
-        burger_name: $("#burg").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
-      };
-  
-      // Send the POST request.
-      $.ajax("/api/burgers", {
-        type: "POST",
-        data: newBurger
-      }).then(
-        function() {
-          console.log("created new Burger");
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-  
-    $(".delete-burger").on("click", function(event) {
-      var id = $(this).data("id");
-  
-      // Send the DELETE request.
-      $.ajax("/api/burgers/" + id, {
-        type: "DELETE"
-      }).then(
-        function() {
-          console.log("deleted burger", id);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-  });
-  
+  // sets user data id into a new variable
+  let burgerID = $(this).attr("data-id");
+  let burgerDevoured = {
+      devoured: true
+  }
+
+  $.ajax({
+      url: `/api/burgers/${burgerID}`,
+      data: burgerDevoured,
+      method: `PUT`
+  }).then(function(){
+      console.log(`this worked`);
+  })
+
+  location.reload();
+})

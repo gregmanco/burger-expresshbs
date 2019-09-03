@@ -1,9 +1,13 @@
-<li>
-	{{name}}
-
-	<button class="change-eat" data-id="{{id}}" data-newsleep="{{devour}}">
-		{{#if devour}}It's Gone{{else}}Time to Eat{{/if}}
-	</button>
-
-	<button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
-</li>
+{{#if devoured}}
+<div class="card devouredCard" style="width: 25rem;">
+    <div class="card-body devoured">
+        <h5 class="card-title">{{burger_name}}</h5>
+    </div>
+</div>
+{{else}}
+<div class="card notdevouredCard" style="width: 15rem;" data-id={{id}}>
+    <div class="card-body notDevoured">
+        <h5 class="card-title notdevouredText">{{burger_name}}</h5>
+    </div>
+</div>
+{{/if}}
