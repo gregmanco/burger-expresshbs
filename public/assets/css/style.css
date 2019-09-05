@@ -22,6 +22,12 @@ body {
 
 h1,h4 {
         color: #FAF2C3;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
+
+.card-title {
+    font-weight: bold;
+
+
+}
 
