@@ -1,0 +1,22 @@
+.devouredCard {
+    position: relative;
+    float: right;
+}
+
+.devoured {
+    background-image: url("http://www.hungersolutions.org/wp-content/uploads/2019/02/breadcrumbs-on-plate-twitter.jpg");
+    background-size: cover;
+    padding: 40px;
+}
+
+.notDevoured {
+    background-size: cover;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSri1m_Gf4SN80b6bOd0gQVzx74vh8ynly4D1brk_96QOUFFuDG");
+    padding: 25px;
+}
+
+body {
+    background-image: url("https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: cover;
+    }
+
