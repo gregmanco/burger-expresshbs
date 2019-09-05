@@ -1,6 +1,6 @@
 // On click function for adding new burgers to the page
-$(document).on("click", "#submit", function(){
-
+$(document).on("click", ".submit", function(){
+console.log(" You clicked the submit button")
   // sets the new burgers name into an object
   let newBurger = {
       name: $(`#usersBurger`).val().trim()
